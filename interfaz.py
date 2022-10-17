@@ -1,8 +1,8 @@
 from singleLinkedList import SingleLinkedList
 
 from doubleLinkedList import DoubleLinkedList
-#from colorama import *
-#init()
+from colorama import *
+init()
 
 
 class interfaz:
@@ -13,11 +13,9 @@ class interfaz:
     def mostrar_opciones(self):
         bandera = True
         while bandera == True:
-            print('1: trabajar con listas simples')
-            print('2: trabajar con listas dobles')
-            print('3: salir')
+            print(Fore.RED + '1: trabajar con listas simples \n2: trabajar con listas dobles \n3: salir ')
             try:
-                opcion = int(input('ingrese opcion: '))
+                opcion = int(input(Fore.RED +'ingrese opcion: '))
                 if opcion == 1:
                     self.listas_simples()
                 elif opcion == 2:
@@ -25,24 +23,18 @@ class interfaz:
                 elif opcion == 3:
                     bandera = False
                 else:
-                    print('opcion inexistente')
+                    print(Fore.RED +'opcion inexistente')
             except:
-                print('ingrese un numero por favor')
+                print(Fore.RED +'ingrese un numero por favor')
 
 ############################################################################
 
     def listas_simples(self):
         bandera = True
         while bandera == True:
-            print('1: añadir nodo')
-            print('2: elimianar nodo')
-            print('3: consultar valor contenido en el nodo')
-            print('4: modificar valor de nodo')
-            print('5: invertir lista')
-            print('6: validacion especial')
-            print('7: salir')
+            print(Fore.CYAN + '1: añadir nodo \n2: elimianar nodo \n3: consultar valor contenido en el nodo \n4: modificar valor de nodo \n5: invertir lista \n6: validacion especial \n7: salir')
             try:
-                opcion = int(input('ingrese opcion: '))
+                opcion = int(input(Fore.CYAN + 'ingrese opcion: '))
                 if opcion == 1:
                     self.añadir_nodo_SLL()
                 elif opcion == 2:
@@ -50,24 +42,24 @@ class interfaz:
                 elif opcion == 3:
                     self.new_SLL.show_info_sll()
                     try:
-                        posicion = int(input('en que posicion: '))
+                        posicion = int(input(Fore.CYAN + 'en que posicion: '))
                         if posicion <= self.new_SLL.length:
                             self.consultar_valor_SLL(posicion)
                         else:
-                            print('posicion erronea')
+                            print(Fore.CYAN + 'posicion erronea')
                     except:
-                        print('ingrese un numero por favor')
+                        print(Fore.CYAN + 'ingrese un numero por favor')
                 elif opcion == 4:
                     self.new_SLL.show_info_sll() #####
                     try:
-                        posicion = int(input('en que posicion: '))
+                        posicion = int(input(Fore.CYAN + 'en que posicion: '))
                         if posicion <= self.new_SLL.length:
-                            valor = int(input('que valor: '))
+                            valor = int(input(Fore.CYAN + 'que valor: '))
                             self.modificar_valor_SLL(posicion, valor)
                         else:
-                            print('posicion inexistente')
+                            print(Fore.CYAN + 'posicion inexistente')
                     except:
-                        print('ingrese un numero por favor')
+                        print(Fore.CYAN + 'ingrese un numero por favor')
                 elif opcion == 5:
                     self.invertir_lista_SLL()
                 elif opcion == 6:
@@ -75,24 +67,21 @@ class interfaz:
                 elif opcion == 7:
                     bandera = False
                 else:
-                    print('opcion inexistente')
+                    print(Fore.CYAN + 'opcion inexistente')
             except:
-                print('ingrese un numero por favor')
+                print(Fore.CYAN + 'ingrese un numero por favor')
 
     def añadir_nodo_SLL(self):
         bandera = True
         while bandera == True:
-            print('1: añadir al inicio')
-            print('2: añadir al final')
-            print('3: añadir en una posicion especifica')
-            print('4: salir')
+            print(Fore.GREEN + '1: añadir al inicio \n2: añadir al final \n3: añadir en una posicion especifica \n4: salir')
             try:
-                opcion = int(input('ingrese opcion: '))
+                opcion = int(input(Fore.GREEN +'ingrese opcion: '))
                 if opcion >= 1 and opcion <= 3:
                     try:
-                        valor = int(input('ingrese valor: '))
+                        valor = int(input(Fore.GREEN +'ingrese valor: '))
                         if self.buscarNodoSLL(valor) == False:
-                            print('ya existe el valor')
+                            print(Fore.GREEN +'ya existe el valor')
                         else:
                             if opcion == 1:
                                 self.new_SLL.unshift_node(valor)
@@ -101,31 +90,28 @@ class interfaz:
                             elif opcion == 3:
                                 self.new_SLL.show_info_sll() ######
                                 try:
-                                    posicion = int(input('en que posicion: '))
+                                    posicion = int(input(Fore.GREEN +'en que posicion: '))
                                     if posicion <= self.new_SLL.length:
                                         self.new_SLL.insert_node(posicion, valor)
                                     else:
-                                        print('posicion erronea')
+                                        print(Fore.GREEN +'posicion erronea')
                                 except: 
-                                    print('ingrese un numero por favor')
+                                    print(Fore.GREEN +'ingrese un numero por favor')
                     except:
-                        print('ingrese un numero por favor')
+                        print(Fore.GREEN +'ingrese un numero por favor')
                 elif opcion==4:
                     bandera = False
                 else:
-                    print('opcion inexistente')
+                    print(Fore.GREEN +'opcion inexistente')
             except:
-                print('ingrese un numero por favor')
+                print(Fore.GREEN +'ingrese un numero por favor')
 
     def eliminar_nodo_SLL(self):
         bandera = True
         while bandera == True:
-            print('1: eliminar al inicio')
-            print('2: eliminar al final')
-            print('3: eliminar en posicion especifica')
-            print('4: salir')
+            print(Fore.MAGENTA + '1: eliminar al inicio \n2: eliminar al final \n3: eliminar en posicion especifica \n4: salir')
             try:
-                opcion = int(input('ingrese opcion: '))
+                opcion = int(input(Fore.MAGENTA +'ingrese opcion: '))
                 if opcion == 1:
                     self.new_SLL.shift_node()
                 elif opcion == 2:
@@ -133,19 +119,19 @@ class interfaz:
                 elif opcion == 3:
                     self.new_SLL.show_info_sll() #####
                     try:
-                        posicion = int(input('en que posicion: '))
+                        posicion = int(input(Fore.MAGENTA +'en que posicion: '))
                         if posicion <= self.new_SLL.length:
                             self.new_SLL.remove_node(posicion)
                         else:
-                            print('posicion erronea')
+                            print(Fore.MAGENTA +'posicion erronea')
                     except:
-                        print('ingrese un numero por favor')
+                        print(Fore.MAGENTA +'ingrese un numero por favor')
                 elif opcion == 4:
                     bandera = False
                 else:
-                    print('opcion inexistente')
+                    print(Fore.MAGENTA +'opcion inexistente')
             except:
-                print('ingrese un numero por favor')
+                print(Fore.MAGENTA +'ingrese un numero por favor')
 
     def consultar_valor_SLL(self, indice):
         valor = self.new_SLL.get_node_value(indice)
@@ -188,15 +174,9 @@ class interfaz:
     def listas_dobles(self):
         bandera = True
         while bandera == True:
-            print('1: añadir nodo')
-            print('2: elimianar nodo')
-            print('3: consultar valor contenido en el nodo')
-            print('4: modificar valor de nodo')
-            print('5: invertir lista')
-            print('6: validacion especial')
-            print('7: salir')
+            print(Fore.CYAN + '1: añadir nodo \n2: elimianar nodo \n3: consultar valor contenido en el nodo \n4: modificar valor de nodo \n5: invertir lista \n6: validacion especial \n7: salir')
             try:
-                opcion = int(input('ingrese opcion: '))
+                opcion = int(input(Fore.CYAN + 'ingrese opcion: '))
                 if opcion == 1:
                     self.añadir_nodo_DLL()
                 elif opcion == 2:
@@ -204,27 +184,27 @@ class interfaz:
                 elif opcion == 3:
                     print(self.new_DLL.print_list())
                     try:
-                        posicion = int(input('en que posicion: '))
+                        posicion = int(input(Fore.CYAN + 'en que posicion: '))
                         if posicion <= self.new_DLL.length:
                             self.consultar_valor_DLL(posicion)
                         else:
-                            print('posicion inexistente')
+                            print(Fore.CYAN + 'posicion inexistente')
                     except:
-                        print('ingrese un numero por favor')
+                        print(Fore.CYAN + 'ingrese un numero por favor')
                 elif opcion == 4:
                     print(self.new_DLL.print_list()) #####
                     try:
-                        posicion = int(input('en que posicion: '))
+                        posicion = int(input(Fore.CYAN + 'en que posicion: '))
                         if posicion <= self.new_DLL.length:
                             try:
-                                valor = int(input('que valor: ')) ###
+                                valor = int(input(Fore.CYAN + 'que valor: ')) ###
                                 self.modificar_valor_DLL(posicion, valor)
                             except:
-                                print('ingrese un numero por favor')
+                                print(Fore.CYAN + 'ingrese un numero por favor')
                         else:
-                            print('posicion inexistente')
+                            print(Fore.CYAN + 'posicion inexistente')
                     except:
-                        print('ingrese un numero por favor')
+                        print(Fore.CYAN + 'ingrese un numero por favor')
                 elif opcion == 5:
                     self.invertir_lista_DLL()
                 elif opcion == 6:
@@ -232,23 +212,20 @@ class interfaz:
                 elif opcion == 7:
                     bandera = False
                 else:
-                    print('opcion inexistente')
+                    print(Fore.CYAN + 'opcion inexistente')
             except:
-                print('ingrese un numero por favor')
+                print(Fore.CYAN + 'ingrese un numero por favor')
 
     def añadir_nodo_DLL(self):
         bandera = True
         while bandera == True:
-            print('1: añadir al inicio')
-            print('2: añadir al final')
-            print('3: añadir en una posicion especifica')
-            print('4: salir')
+            print(Fore.GREEN + '1: añadir al inicio \n2: añadir al final \n3: añadir en una posicion especifica \n4: salir')
             try:
-                opcion = int(input('ingrese opcion: '))
+                opcion = int(input(Fore.GREEN +'ingrese opcion: '))
                 if opcion >= 1 and opcion <=3:
-                    valor = int(input('ingrese valor: '))
+                    valor = int(input(Fore.GREEN +'ingrese valor: '))
                     if self.buscarNodoDLL(valor) == False:
-                        print('ya existe el valor')
+                        print(Fore.GREEN +'ya existe el valor')
                     else:
                         if opcion == 1:
                             self.new_DLL.unshift_node(valor)
@@ -257,29 +234,26 @@ class interfaz:
                         elif opcion == 3:
                             print(self.new_DLL.print_list()) #####
                             try:
-                                posicion = int(input('en que posicion: '))
+                                posicion = int(input(Fore.GREEN +'en que posicion: '))
                                 if posicion <= self.new_DLL.length:
                                     self.new_DLL.insert_node(posicion, valor)
                                 else:
-                                    print('posicion erronea')
+                                    print(Fore.GREEN +'posicion erronea')
                             except:
-                                print('ingrese un numero por favor')
+                                print(Fore.GREEN +'ingrese un numero por favor')
                 elif opcion == 4:
                     bandera = False
                 else:
-                    print('opcion inexistente')
+                    print(Fore.GREEN +'opcion inexistente')
             except:
-                print('ingrese un numero por favor')
+                print(Fore.GREEN +'ingrese un numero por favor')
 
     def eliminar_nodo_DLL(self):
         bandera = True
         while bandera == True:
-            print('1: eliminar al inicio')
-            print('2: eliminar al final')
-            print('3: eliminar en posicion especifica')
-            print('4: salir')
+            print(Fore.MAGENTA + '1: eliminar al inicio \n2: eliminar al final \n3: eliminar en posicion especifica \n4: salir')
             try:
-                opcion = int(input('ingrese opcion: '))
+                opcion = int(input(Fore.MAGENTA +'ingrese opcion: '))
                 if opcion == 1:
                     self.new_DLL.shift_node()
                 elif opcion == 2:
@@ -287,19 +261,19 @@ class interfaz:
                 elif opcion == 3:
                     print(self.new_DLL.print_list()) ####
                     try:
-                        posicion = int(input('en que posicion: '))
+                        posicion = int(input(Fore.MAGENTA +'en que posicion: '))
                         if posicion <= self.new_DLL.length:
                             self.new_DLL.remove_node(posicion)
                         else: 
-                            print('posicion erronea')
+                            print(Fore.MAGENTA +'posicion erronea')
                     except:
-                        print('ingrese un numero por favor')
+                        print(Fore.MAGENTA +'ingrese un numero por favor')
                 elif opcion == 4:
                     bandera = False
                 else:
-                    print('opcion inexistente')
+                    print(Fore.MAGENTA +'opcion inexistente')
             except:
-                print('ingrese un numero por favor')
+                print(Fore.MAGENTA +'ingrese un numero por favor')
 
     def consultar_valor_DLL(self, indice):
         valor = self.new_DLL.get_node_value(indice)
